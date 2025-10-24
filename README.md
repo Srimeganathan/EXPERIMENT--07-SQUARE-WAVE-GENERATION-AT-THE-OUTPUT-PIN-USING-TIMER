@@ -359,31 +359,33 @@ void assert_failed(uint8_t *file, uint32_t line)
 <img width="1374" height="870" alt="Screenshot 2025-10-24 092853" src="https://github.com/user-attachments/assets/d00fed78-52d9-45df-845b-a586b49cdfbc" />
 
 ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
-<img width="816" height="678" alt="image" src="https://github.com/user-attachments/assets/7a04b1c3-1904-4f20-a89d-4da01add2e40" />
+ <img width="1021" height="714" alt="image" src="https://github.com/user-attachments/assets/822aa033-8148-4bc2-a2e4-2197929fdffb" />
+
+<img width="873" height="573" alt="image" src="https://github.com/user-attachments/assets/12b84f0a-c3ad-4322-aa5b-08ff053b5dae" />
+
 
 ## DUTY CYCLE AND FREQUENCY CALCULATION 
 FOR PULSE AT 5000
 
-TON = 0.32ms
-TOFF= 0.32ms
-TOTAL TIME = 0.64ms
-FREQUENCY = 1/(TOTAL TIME) = 1.56 KHz
+TON = 0.31ms
+TOFF= 0.36ms
+TOTAL TIME = 0.67ms
+FREQUENCY = 1/(TOTAL TIME) = 1.49 KHz
 
 FOR PULSE AT 7000
 
 TON = 0.43ms
-TOFF= 0.2ms
-TOTAL TIME = 0.63ms
-FREQUENCY = 1/(TOTAL TIME) = 1.58KHz
+TOFF= 0.15ms
+TOTAL TIME = 0.58ms
+FREQUENCY = 1/(TOTAL TIME) = 1.72KHz
 
 
 FOR PULSE AT 9000
 
-TON = 0.56ms
-TOFF= 0.07ms
-TOTAL TIME = 0.63ms
-FREQUENCY = 1/(TOTAL TIME)= 1.58KHz
+TON = 0.55ms
+TOFF= 0.13ms
+TOTAL TIME = 0.68ms
+FREQUENCY = 1/(TOTAL TIME)= 1.47KHz
 
 
 ## Result :
