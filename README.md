@@ -431,7 +431,7 @@ FREQUENCY = 1 / (TOTAL TIME)
 
 DUTY CYCLE = TON / (TON + TOFF)
       = 0.00055 / 0.00062
-      ≈ 0.89
+      ≈ 0.90
 IN % = 0.90 × 100
     = 90 %
 ```
