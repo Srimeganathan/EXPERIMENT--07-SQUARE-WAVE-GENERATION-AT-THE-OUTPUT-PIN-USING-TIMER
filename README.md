@@ -368,25 +368,54 @@ void assert_failed(uint8_t *file, uint32_t line)
 ```
 FOR PULSE AT 5000
 
-TON = 0.31ms
-TOFF= 0.31ms
-TOTAL TIME = 0.62ms
-FREQUENCY = 1/(TOTAL TIME) = 1.61 KHz
+TON = 0.31 × 10^-3
+   = 0.00031
+
+TOFF = 0.31 × 10^-3
+   = 0.00031
+
+TOTAL TIME = TON + TOFF
+     = 0.00031 + 0.00031
+     = 0.00062
+
+FREQUENCY = 1 / (TOTAL TIME)
+     = 1 / 0.00062
+     = 1612.9 Hz
+     ≈ 1.61 kHz
 
 FOR PULSE AT 7000
 
-TON = 0.43ms
-TOFF= 0.19ms
-TOTAL TIME = 0.62ms
-FREQUENCY = 1/(TOTAL TIME) = 1.61KHz
+TON = 0.43 × 10^-3
+   = 0.00043
 
+TOFF = 0.19 × 10^-3
+   = 0.00019
+
+TOTAL TIME = TON + TOFF
+     = 0.00043 + 0.00019
+     = 0.00062
+
+FREQUENCY = 1 / (TOTAL TIME)
+     = 1 / 0.00062
+     = 1612.9 Hz
+     ≈ 1.61 kHz
 
 FOR PULSE AT 9000
 
-TON = 0.55ms
-TOFF= 0.07ms
-TOTAL TIME = 0.62ms
-FREQUENCY = 1/(TOTAL TIME)= 1.61KHz
+TON = 0.55 × 10^-3
+   = 0.00055
+
+TOFF = 0.07 × 10^-3
+   = 0.00007
+
+TOTAL TIME = TON + TOFF
+     = 0.00055 + 0.00007
+     = 0.00062
+
+FREQUENCY = 1 / (TOTAL TIME)
+     = 1 / 0.00062
+     = 1612.9 Hz
+     ≈ 1.61 kHz
 ```
 
 ## Result :
