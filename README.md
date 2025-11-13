@@ -383,6 +383,12 @@ FREQUENCY = 1 / (TOTAL TIME)
      = 1612.9 Hz
      ≈ 1.61 kHz
 
+DUTY CYCLE = TON / (TON + TOFF)
+      = 0.00031 / 0.00062
+      = 0.5
+IN % = 0.5 × 100
+    = 50 %
+
 FOR PULSE AT 7000
 
 TON = 0.43 × 10^-3
@@ -400,6 +406,12 @@ FREQUENCY = 1 / (TOTAL TIME)
      = 1612.9 Hz
      ≈ 1.61 kHz
 
+DUTY CYCLE = TON / (TON + TOFF)
+      = 0.00043 / 0.00062
+      ≈ 0.70
+IN % = 0.70 × 100
+    = 70 %
+
 FOR PULSE AT 9000
 
 TON = 0.55 × 10^-3
@@ -416,6 +428,12 @@ FREQUENCY = 1 / (TOTAL TIME)
      = 1 / 0.00062
      = 1612.9 Hz
      ≈ 1.61 kHz
+
+DUTY CYCLE = TON / (TON + TOFF)
+      = 0.00055 / 0.00062
+      ≈ 0.89
+IN % = 0.90 × 100
+    = 90 %
 ```
 
 ## Result :
