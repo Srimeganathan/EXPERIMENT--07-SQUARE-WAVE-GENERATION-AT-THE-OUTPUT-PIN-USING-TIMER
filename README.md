@@ -101,13 +101,12 @@ Step14. click on debug and simulate using simulation as shown below
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2026 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -127,6 +126,7 @@ Step14. click on debug and simulate using simulation as shown below
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -160,6 +160,7 @@ static void MX_TIM2_Init(void);
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -183,9 +184,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
   HAL_TIM_Base_Start(&htim2);
   HAL_TIM_PWM_Init(&htim2);
-  HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
@@ -208,6 +215,7 @@ void SystemClock_Config(void)
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
@@ -219,6 +227,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
@@ -246,7 +255,6 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 0 */
 
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
 
@@ -256,18 +264,9 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 10000;
+  htim2.Init.Period = 1000;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
@@ -279,7 +278,7 @@ static void MX_TIM2_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 5000;
+  sConfigOC.Pulse = 450;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
@@ -300,10 +299,16 @@ static void MX_TIM2_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+
+  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+
+  /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -324,8 +329,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
@@ -342,98 +346,60 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif /* USE_FULL_ASSERT */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 ~~~
 
 ## Output screen shots of proteus  :
-5000
+500
 
-<img width="1371" height="868" alt="Screenshot 2025-10-24 092412" src="https://github.com/user-attachments/assets/4f3a6e8a-f285-43d6-bc27-a40740966676" />
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/6207c0d8-77d4-415d-95d6-3a7429de4294" />
 
-7000
+750
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/3b2c6a8e-d742-4579-84a4-a62aef64b465" />
 
-<img width="1373" height="871" alt="Screenshot 2025-10-24 092649" src="https://github.com/user-attachments/assets/7b617fdd-67b6-4c71-a923-f481ca95daf9" />
 
-9000
+450
 
-<img width="1374" height="870" alt="Screenshot 2025-10-24 092853" src="https://github.com/user-attachments/assets/d00fed78-52d9-45df-845b-a586b49cdfbc" />
+<img width="1917" height="1197" alt="image" src="https://github.com/user-attachments/assets/34caef28-c56a-433d-9683-c5b4ef00fb71" />
 
 ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- <img width="1021" height="714" alt="image" src="https://github.com/user-attachments/assets/822aa033-8148-4bc2-a2e4-2197929fdffb" />
+ <img width="860" height="565" alt="image" src="https://github.com/user-attachments/assets/49b410cf-d67f-40cc-aaba-1e01105958b7" />
 
-<img width="873" height="573" alt="image" src="https://github.com/user-attachments/assets/12b84f0a-c3ad-4322-aa5b-08ff053b5dae" />
 
 
 ## DUTY CYCLE AND FREQUENCY CALCULATION 
 ```
-FOR PULSE AT 5000
+DUTY CYCLE AND FREQUENCY CALCULATION
 
-TON = 0.31 × 10^-3
-   = 0.00031
+FOR PULSE AT 500
 
-TOFF = 0.31 × 10^-3
-   = 0.00031
+TON = 3 * 10Ms = 30Ms
+TOFF = 3 * 10Ms = 30Ms
 
-TOTAL TIME = TON + TOFF
-     = 0.00031 + 0.00031
-     = 0.00062
+TOTAL TIME = TON/(TON+TOFF) = 30Ms/60Ms = 1/2 = 0.5Ms
+= 0.5 * 100 = 50%
 
-FREQUENCY = 1 / (TOTAL TIME)
-     = 1 / 0.00062
-     = 1612.9 Hz
-     ≈ 1.61 kHz
+FREQUENCY = 1/(TOTAL TIME)
+= 1/(TON+TOFF) = 1/60 = 0.016
 
-DUTY CYCLE = TON / (TON + TOFF)
-      = 0.00031 / 0.00062
-      = 0.5
-IN % = 0.5 × 100
-    = 50 %
 
-FOR PULSE AT 7000
+FOR PULSE AT 750
 
-TON = 0.43 × 10^-3
-   = 0.00043
+TON = 1.5 * 10Ms = 15Ms
+TOFF = 1.5 * 10Ms = 15Ms
 
-TOFF = 0.19 × 10^-3
-   = 0.00019
+TOTAL TIME = TON/(TON+TOFF) = 15Ms/30Ms = 1/2 = 0.5Ms
+= 0.5 * 100 = 50%
 
-TOTAL TIME = TON + TOFF
-     = 0.00043 + 0.00019
-     = 0.00062
+FREQUENCY = 1/(TOTAL TIME)
+= 1/(TON+TOFF) = 1/30 = 0.033
 
-FREQUENCY = 1 / (TOTAL TIME)
-     = 1 / 0.00062
-     = 1612.9 Hz
-     ≈ 1.61 kHz
 
-DUTY CYCLE = TON / (TON + TOFF)
-      = 0.00043 / 0.00062
-      ≈ 0.70
-IN % = 0.70 × 100
-    = 70 %
+FOR PULSE AT 400
 
-FOR PULSE AT 9000
+TON = 2.5 * 10Ms = 25Ms
+TOFF = 2.5 * 10Ms = 25Ms
 
-TON = 0.55 × 10^-3
-   = 0.00055
-
-TOFF = 0.07 × 10^-3
-   = 0.00007
-
-TOTAL TIME = TON + TOFF
-     = 0.00055 + 0.00007
-     = 0.00062
-
-FREQUENCY = 1 / (TOTAL TIME)
-     = 1 / 0.00062
-     = 1612.9 Hz
-     ≈ 1.61 kHz
-
-DUTY CYCLE = TON / (TON + TOFF)
-      = 0.00055 / 0.00062
-      ≈ 0.90
-IN % = 0.90 × 100
-    = 90 %
+TOTAL TIME = TON/(TON+TOFF) = 25Ms/50Ms = 1/2 = 0.5Ms
 ```
 
 ## Result :
